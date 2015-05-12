@@ -1,13 +1,9 @@
 import sbt._
 import Keys._
-import spray.revolver.RevolverPlugin._
 
 object Build extends Build {
   lazy val root =
     Project(id = "test-it", base = file("."))
-      .configs(IntegrationTest)
-      .settings(Revolver.settings)
-      .settings(Defaults.itSettings: _*)
       .settings(
         name := "test-it",
         organization := "uk.gov.homeoffice",
@@ -31,5 +27,5 @@ object Build extends Build {
         libraryDependencies ++= Seq(
           "org.scalautils" %% "scalautils" % "2.1.5" withSources()),
         libraryDependencies ++= Seq(
-          "org.specs2" %% "specs2" % "2.4.17" % "test, it" withSources()))
+          "org.specs2" %% "specs2" % "2.4.17" % "test" withSources()))
 }
