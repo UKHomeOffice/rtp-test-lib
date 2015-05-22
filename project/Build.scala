@@ -16,7 +16,8 @@ object Build extends Build {
           "-language:existentials",
           "-language:reflectiveCalls",
           "-language:postfixOps",
-          "-Yrangepos"),
+          "-Yrangepos",
+          "-Yrepl-sync"),
         ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
         resolvers ++= Seq(
           "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
@@ -27,5 +28,7 @@ object Build extends Build {
         libraryDependencies ++= Seq(
           "org.scalautils" %% "scalautils" % "2.1.5" withSources()),
         libraryDependencies ++= Seq(
-          "org.specs2" %% "specs2" % "2.4.17" % "test" withSources()))
+          "org.specs2" %% "specs2-core" % "3.6" % "test" withSources(),
+          "org.specs2" %% "specs2-mock" % "3.6" % "test" withSources(),
+          "org.specs2" %% "specs2-matcher-extra" % "3.6" % "test" withSources()))
 }
