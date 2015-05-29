@@ -25,7 +25,7 @@ object Build extends Build {
         "Kamon Repository" at "http://repo.kamon.io",
         "Artifactory Snapshot Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-snapshot-local/"),
       libraryDependencies ++= Seq(
-        "org.scalautils" %% "scalautils" % "2.1.5" withSources()),
+        "org.scalactic" %% "scalactic" % "2.2.4" withSources()),
       libraryDependencies ++= Seq(
         "org.specs2" %% "specs2-core" % "3.6" % "test" withSources(),
         "org.specs2" %% "specs2-mock" % "3.6" % "test" withSources(),
