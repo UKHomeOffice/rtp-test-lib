@@ -2,9 +2,9 @@ import sbt._
 import Keys._
 
 object Build extends Build {
-  lazy val root = Project(id = "test-it", base = file("."))
+  lazy val root = Project(id = "rtp-test-lib", base = file("."))
     .settings(
-      name := "test-it",
+      name := "rtp-test-lib",
       organization := "uk.gov.homeoffice",
       version := "1.0-SNAPSHOT",
       scalaVersion := "2.11.6",
