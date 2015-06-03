@@ -2,9 +2,11 @@ import sbt._
 import Keys._
 
 object Build extends Build {
-  lazy val root = Project(id = "rtp-test-lib", base = file("."))
+  val moduleName = "rtp-test-lib"
+
+  lazy val root = Project(id = moduleName, base = file("."))
     .settings(
-      name := "rtp-test-lib",
+      name := moduleName,
       organization := "uk.gov.homeoffice",
       version := "1.0-SNAPSHOT",
       scalaVersion := "2.11.6",
@@ -27,7 +29,7 @@ object Build extends Build {
       libraryDependencies ++= Seq(
         "org.scalactic" %% "scalactic" % "2.2.4" withSources()),
       libraryDependencies ++= Seq(
-        "org.specs2" %% "specs2-core" % "3.6" % "test" withSources(),
-        "org.specs2" %% "specs2-mock" % "3.6" % "test" withSources(),
-        "org.specs2" %% "specs2-matcher-extra" % "3.6" % "test" withSources()))
+        "org.specs2" %% "specs2-core" % "3.6" % Test withSources(),
+        "org.specs2" %% "specs2-mock" % "3.6" % Test withSources(),
+        "org.specs2" %% "specs2-matcher-extra" % "3.6" % Test withSources()))
 }
