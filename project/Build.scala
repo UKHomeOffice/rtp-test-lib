@@ -29,7 +29,7 @@ object Build extends Build {
       libraryDependencies ++= Seq(
         "org.scalactic" %% "scalactic" % "2.2.4" withSources()),
       libraryDependencies ++= Seq(
-        "org.specs2" %% "specs2-core" % "3.6" % Test withSources(),
-        "org.specs2" %% "specs2-mock" % "3.6" % Test withSources(),
-        "org.specs2" %% "specs2-matcher-extra" % "3.6" % Test withSources()))
+        "org.specs2" %% "specs2-core" % "3.6.2" % Test withSources(),
+        "org.specs2" %% "specs2-mock" % "3.6.2" % Test withSources(),
+        "org.specs2" %% "specs2-matcher-extra" % "3.6.2" % Test withSources()))
 }
