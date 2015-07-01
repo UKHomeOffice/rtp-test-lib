@@ -29,10 +29,9 @@ object Build extends Build {
         "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
         "Kamon Repository" at "http://repo.kamon.io"),
       libraryDependencies ++= Seq(
-        "org.scalactic" %% "scalactic" % "2.2.4" withSources()),
-      libraryDependencies ++= Seq(
-        "org.specs2" %% "specs2-core" % specs2Version % Test withSources(),
-        "org.specs2" %% "specs2-mock" % specs2Version % Test withSources(),
-        "org.specs2" %% "specs2-matcher-extra" % specs2Version % Test withSources(),
-        "org.specs2" %% "specs2-junit" % specs2Version % Test withSources()))
+        "org.scalactic" %% "scalactic" % "2.2.4" withSources(),
+        "org.specs2" %% "specs2-core" % specs2Version withSources(),
+        "org.specs2" %% "specs2-mock" % specs2Version withSources(),
+        "org.specs2" %% "specs2-matcher-extra" % specs2Version withSources(),
+        "org.specs2" %% "specs2-junit" % specs2Version withSources()))
 }
