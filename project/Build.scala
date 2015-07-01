@@ -4,6 +4,8 @@ import Keys._
 object Build extends Build {
   val moduleName = "rtp-test-lib"
 
+  val specs2Version = "3.6.2"
+
   lazy val root = Project(id = moduleName, base = file("."))
     .settings(
       name := moduleName,
@@ -29,7 +31,8 @@ object Build extends Build {
       libraryDependencies ++= Seq(
         "org.scalactic" %% "scalactic" % "2.2.4" withSources()),
       libraryDependencies ++= Seq(
-        "org.specs2" %% "specs2-core" % "3.6.2" % Test withSources(),
-        "org.specs2" %% "specs2-mock" % "3.6.2" % Test withSources(),
-        "org.specs2" %% "specs2-matcher-extra" % "3.6.2" % Test withSources()))
+        "org.specs2" %% "specs2-core" % specs2Version % Test withSources(),
+        "org.specs2" %% "specs2-mock" % specs2Version % Test withSources(),
+        "org.specs2" %% "specs2-matcher-extra" % specs2Version % Test withSources(),
+        "org.specs2" %% "specs2-junit" % specs2Version % Test withSources()))
 }
