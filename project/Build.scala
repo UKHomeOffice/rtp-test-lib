@@ -32,8 +32,9 @@ object Build extends Build {
         "org.scalactic" %% "scalactic" % "2.2.4" withSources(),
         "org.clapper" %% "grizzled-slf4j" % "1.0.2",
         "ch.qos.logback" % "logback-classic" % "1.1.3",
+        "org.mockito" % "mockito-all" % "1.10.19" withSources(),
         "org.specs2" %% "specs2-core" % specs2Version withSources(),
-        "org.specs2" %% "specs2-mock" % specs2Version withSources(),
+        "org.specs2" %% "specs2-mock" % specs2Version withSources() excludeAll ExclusionRule(organization = "org.mockito"),
         "org.specs2" %% "specs2-matcher-extra" % specs2Version withSources(),
         "org.specs2" %% "specs2-junit" % specs2Version withSources()))
 }
