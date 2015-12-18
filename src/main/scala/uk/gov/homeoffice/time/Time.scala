@@ -10,7 +10,7 @@ trait Time extends Logging {
   def timed[R](description: String)(f: => R) = {
     val start = System.currentTimeMillis()
     val result = f
-    debug(s"$description => ${System.currentTimeMillis() - start} milliseconds")
+    info(s"$description => ${System.currentTimeMillis() - start} milliseconds")
     result
   }
 }
