@@ -8,7 +8,7 @@ object Build extends Build {
     .settings(
       name := moduleName,
       organization := "uk.gov.homeoffice",
-      version := "1.2.0",
+      version := "1.2.1",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq(
         "-feature",
@@ -28,15 +28,15 @@ object Build extends Build {
         "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
         "Kamon Repository" at "http://repo.kamon.io"),
       libraryDependencies ++= {
-        val specs2Version = "3.7"
+        val specs2Version = "3.7.2"
 
         Seq(
           "org.scalactic" %% "scalactic" % "2.2.6" withSources(),
           "org.clapper" %% "grizzled-slf4j" % "1.0.2",
           "ch.qos.logback" % "logback-classic" % "1.1.3",
-          "org.mockito" % "mockito-all" % "1.10.19" withSources(),
+          // "org.mockito" % "mockito-all" % "1.10.19" withSources(),
           "org.specs2" %% "specs2-core" % specs2Version withSources(),
-          "org.specs2" %% "specs2-mock" % specs2Version withSources() excludeAll ExclusionRule(organization = "org.mockito"),
+          "org.specs2" %% "specs2-mock" % specs2Version withSources() /*excludeAll ExclusionRule(organization = "org.mockito")*/,
           "org.specs2" %% "specs2-matcher-extra" % specs2Version withSources(),
           "org.specs2" %% "specs2-junit" % specs2Version withSources()
         )
