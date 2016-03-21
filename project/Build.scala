@@ -8,7 +8,7 @@ object Build extends Build {
     .settings(
       name := moduleName,
       organization := "uk.gov.homeoffice",
-      version := "1.2.2-SNAPSHOT",
+      version := "1.2.2",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq(
         "-feature",
@@ -18,7 +18,8 @@ object Build extends Build {
         "-language:reflectiveCalls",
         "-language:postfixOps",
         "-Yrangepos",
-        "-Yrepl-sync"),
+        "-Yrepl-sync"
+      ),
       ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
       resolvers ++= Seq(
         "Artifactory Snapshot Realm" at "http://artifactory.registered-traveller.homeoffice.gov.uk/artifactory/libs-snapshot-local/",
@@ -26,7 +27,8 @@ object Build extends Build {
         "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
         "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
         "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
-        "Kamon Repository" at "http://repo.kamon.io"),
+        "Kamon Repository" at "http://repo.kamon.io"
+      ),
       libraryDependencies ++= {
         val specs2Version = "3.7.2"
 
