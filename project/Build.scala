@@ -8,7 +8,7 @@ object Build extends Build {
     .settings(
       name := moduleName,
       organization := "uk.gov.homeoffice",
-      version := "1.2.2",
+      version := "1.2.2-SNAPSHOT",
       scalaVersion := "2.11.8",
       scalacOptions ++= Seq(
         "-feature",
@@ -30,16 +30,16 @@ object Build extends Build {
         "Kamon Repository" at "http://repo.kamon.io"
       ),
       libraryDependencies ++= {
-        val specs2Version = "3.7.2"
+        val `specs2-version` = "3.7.2"
 
         Seq(
           "org.scalactic" %% "scalactic" % "2.2.6" withSources(),
           "org.clapper" %% "grizzled-slf4j" % "1.0.2",
           "ch.qos.logback" % "logback-classic" % "1.1.3",
-          "org.specs2" %% "specs2-core" % specs2Version withSources(),
-          "org.specs2" %% "specs2-mock" % specs2Version withSources(),
-          "org.specs2" %% "specs2-matcher-extra" % specs2Version withSources(),
-          "org.specs2" %% "specs2-junit" % specs2Version withSources()
+          "org.specs2" %% "specs2-core" % `specs2-version` withSources(),
+          "org.specs2" %% "specs2-mock" % `specs2-version` withSources(),
+          "org.specs2" %% "specs2-matcher-extra" % `specs2-version` withSources(),
+          "org.specs2" %% "specs2-junit" % `specs2-version` withSources()
         )
       }
     )
