@@ -20,10 +20,8 @@ package object specs2 {
     */
   def times[R](n: Int)(r: => MatchResult[R]): MatchResult[R] = {
     def run(count: Int, result: MatchResult[R]): MatchResult[R] = {
-      if (count > 1) {
-        if (result.isSuccess) {
-          run(count - 1, r)
-        }
+      if (result.isSuccess && count > 1) {
+        run(count - 1, r)
       }
 
       result
