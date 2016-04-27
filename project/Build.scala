@@ -34,7 +34,7 @@ object Build extends Build {
         Seq(
           "org.scalactic" %% "scalactic" % "2.2.6" withSources(),
           "org.clapper" %% "grizzled-slf4j" % "1.0.2",
-          "ch.qos.logback" % "logback-classic" % "1.1.3",
+          "ch.qos.logback" % "logback-classic" % "1.1.7",
           "org.specs2" %% "specs2-core" % `specs2-version` withSources(),
           "org.specs2" %% "specs2-mock" % `specs2-version` withSources(),
           "org.specs2" %% "specs2-matcher-extra" % `specs2-version` withSources(),
