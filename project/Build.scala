@@ -29,7 +29,7 @@ object Build extends Build {
         "Kamon Repository" at "http://repo.kamon.io"
       ),
       libraryDependencies ++= {
-        val `specs2-version` = "3.7.3"
+        val `specs2-version` = "3.8"
 
         Seq(
           "org.scalactic" %% "scalactic" % "2.2.6" withSources(),
