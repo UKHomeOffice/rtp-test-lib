@@ -30,10 +30,8 @@ object Build extends Build {
       ),
       libraryDependencies ++= {
         val `specs2-version` = "3.8.6"
-        val `scalactic-version` = "3.0.1"
 
         Seq(
-          "org.scalactic" %% "scalactic" % `scalactic-version` withSources(),
           "org.clapper" %% "grizzled-slf4j" % "1.3.0",
           "ch.qos.logback" % "logback-classic" % "1.1.8",
           "org.specs2" %% "specs2-core" % `specs2-version` withSources(),
