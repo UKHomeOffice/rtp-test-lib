@@ -29,11 +29,11 @@ object Build extends Build {
         "Kamon Repository" at "http://repo.kamon.io"
       ),
       libraryDependencies ++= {
-        val `specs2-version` = "3.8.6"
+        val `specs2-version` = "3.9.4"
 
         Seq(
-          "org.clapper" %% "grizzled-slf4j" % "1.3.0",
-          "ch.qos.logback" % "logback-classic" % "1.1.8",
+          "org.clapper" %% "grizzled-slf4j" % "1.3.1",
+          "ch.qos.logback" % "logback-classic" % "1.2.3",
           "org.specs2" %% "specs2-core" % `specs2-version` withSources(),
           "org.specs2" %% "specs2-mock" % `specs2-version` withSources(),
           "org.specs2" %% "specs2-matcher-extra" % `specs2-version` withSources(),
