@@ -19,6 +19,7 @@ pipeline:
       - sbt publish
     image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
     environment:
+      - ARTIFACTORY_SERVER=https://artifactory.digital.homeoffice.gov.uk/
       - ARTIFACTORY_USERNAME=regt-build-bot
     secrets:
       - ARTIFACTORY_PASSWORD
@@ -32,6 +33,7 @@ pipeline:
       - sbt "set version := \"$${DRONE_TAG}\"" publish
     image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
     environment:
+      - ARTIFACTORY_SERVER=https://artifactory.digital.homeoffice.gov.uk/
       - ARTIFACTORY_USERNAME=regt-build-bot
     secrets:
       - ARTIFACTORY_PASSWORD
