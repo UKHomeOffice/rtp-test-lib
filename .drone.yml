@@ -29,7 +29,7 @@ pipeline:
   publish_tag:
     commands:
       - /root/entrypoint.sh
-      - sbt "set version := \"$${DRONE_TAG}\" publish"
+      - sbt "set version := \"$${DRONE_TAG}\"" publish
     image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
     environment:
       - ARTIFACTORY_USERNAME=regt-build-bot
