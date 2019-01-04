@@ -1,6 +1,6 @@
 
 lazy val root = Project(id = "rtp-test-lib", base = file("."))
-  //.enablePlugins(GitVersioning)
+  .enablePlugins(GitVersioning)
   .settings(
     name := "rtp-test-lib",
     organization := "uk.gov.homeoffice",
