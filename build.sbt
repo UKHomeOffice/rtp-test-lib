@@ -4,15 +4,15 @@ lazy val root = Project(id = "rtp-test-lib", base = file("."))
   .settings(
     name := "rtp-test-lib",
     organization := "uk.gov.homeoffice",
-    scalaVersion := "2.12.6",
-    crossScalaVersions := Seq("2.11.8", "2.12.6"),
+    scalaVersion := "2.12.12",
+    crossScalaVersions := Seq("2.12.12"),
     libraryDependencies ++= Seq(
-      "org.clapper" %% "grizzled-slf4j" % "1.3.1",
-      "ch.qos.logback" % "logback-classic" % "1.2.3",
-      "org.specs2" %% "specs2-core" % "3.8.9" withSources(),
-      "org.specs2" %% "specs2-mock" % "3.8.9" withSources(),
-      "org.specs2" %% "specs2-matcher-extra" % "3.8.9" withSources(),
-      "org.specs2" %% "specs2-junit" % "3.8.9" withSources()
+      "org.clapper" %% "grizzled-slf4j" % "1.3.4",
+      "ch.qos.logback" % "logback-classic" % "1.4.0",
+      "org.specs2" %% "specs2-core" % "4.10.6" withSources(),
+      "org.specs2" %% "specs2-mock" % "4.10.6" withSources(),
+      "org.specs2" %% "specs2-matcher-extra" % "4.10.6" withSources(),
+      "org.specs2" %% "specs2-junit" % "4.10.6" withSources()
     )
   )
 
@@ -30,7 +30,7 @@ tag match {
 }}
 
 publishTo := {
-  val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("http://artifactory.registered-traveller.homeoffice.gov.uk/")
+  val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("https://artifactory.registered-traveller.homeoffice.gov.uk/")
   Some("release"  at artifactory + "artifactory/libs-release-local")
 }
 
