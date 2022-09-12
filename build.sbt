@@ -36,6 +36,12 @@ publishTo := {
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
+resolvers ++= Seq(
+  "ACPArtifactory Lib Snapshot" at "https://artifactory.digital.homeoffice.gov.uk/artifactory/libs-snapshot-local/",
+  "ACPArtifactory Lib Release" at "https://artifactory.digital.homeoffice.gov.uk/artifactory/libs-release-local/",
+  "ACPArtifactory Ext Release" at "https://artifactory.digital.homeoffice.gov.uk/artifactory/ext-release-local/"
+)
+
 publishArtifact in (Test, packageBin) := true
 publishArtifact in (Test, packageDoc) := true
 publishArtifact in (Test, packageSrc) := true
