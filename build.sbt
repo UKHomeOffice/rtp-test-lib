@@ -30,7 +30,7 @@ tag match {
 }}
 
 publishTo := {
-  val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("https://artifactory.registered-traveller.homeoffice.gov.uk/")
+  val artifactory = sys.env.get("ARTIFACTORY_SERVER").getOrElse("https://artifactory.digital.homeoffice.gov.uk")
   Some("release"  at artifactory + "artifactory/libs-release-local")
 }
 
