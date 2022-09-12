@@ -5,7 +5,7 @@ lazy val root = Project(id = "rtp-test-lib", base = file("."))
     name := "rtp-test-lib",
     organization := "uk.gov.homeoffice",
     scalaVersion := "2.12.12",
-    crossScalaVersions := Seq("2.12.12"),
+    crossScalaVersions := Seq("2.11.8", "2.12.12"),
     libraryDependencies ++= Seq(
       "org.clapper" %% "grizzled-slf4j" % "1.3.4",
       "ch.qos.logback" % "logback-classic" % "1.4.0",
