@@ -4,11 +4,11 @@ lazy val root = Project(id = "rtp-test-lib", base = file("."))
   .settings(
     name := "rtp-test-lib",
     organization := "uk.gov.homeoffice",
-    scalaVersion := "2.13.10",
-    crossScalaVersions := Seq("2.11.8", "2.12.16", "2.13.10"),
+    scalaVersion := "2.13.12",
+    crossScalaVersions := Seq("2.11.8", "2.12.16", "2.13.12"),
     libraryDependencies ++= Seq(
       "org.clapper" %% "grizzled-slf4j" % "1.3.4",
-      "ch.qos.logback" % "logback-classic" % "1.4.5",
+      "ch.qos.logback" % "logback-classic" % "1.4.14",
       "org.specs2" %% "specs2-core" % "4.10.6" withSources(),
       "org.specs2" %% "specs2-mock" % "4.10.6" withSources(),
       "org.specs2" %% "specs2-matcher-extra" % "4.10.6" withSources(),
