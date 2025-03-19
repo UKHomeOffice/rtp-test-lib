@@ -4,17 +4,19 @@ lazy val root = Project(id = "rtp-test-lib", base = file("."))
   .settings(
     name := "rtp-test-lib",
     organization := "uk.gov.homeoffice",
-    scalaVersion := "2.13.12",
-    crossScalaVersions := Seq("2.11.8", "2.12.16", "2.13.12"),
+    scalaVersion := "3.3.5",
+    crossScalaVersions := Seq("2.13.16", "3.3.5"),
     libraryDependencies ++= Seq(
-      "org.clapper" %% "grizzled-slf4j" % "1.3.4",
-      "ch.qos.logback" % "logback-classic" % "1.4.14",
-      "org.specs2" %% "specs2-core" % "4.10.6" withSources(),
-      "org.specs2" %% "specs2-mock" % "4.10.6" withSources(),
-      "org.specs2" %% "specs2-matcher-extra" % "4.10.6" withSources(),
-      "org.specs2" %% "specs2-junit" % "4.10.6" withSources()
+      ("org.clapper" %% "grizzled-slf4j" % "1.3.4").cross(CrossVersion.for3Use2_13),
+      "ch.qos.logback" % "logback-classic" % "1.5.18",
+      "org.specs2" %% "specs2-core" % "4.21.0" withSources(),
+      "org.specs2" %% "specs2-matcher-extra" % "4.21.0" withSources(),
+      "org.specs2" %% "specs2-junit" % "4.21.0" withSources(),
+      "org.mockito" % "mockito-core" % "5.16.1"
     )
   )
+
+ThisBuild / semanticdbVersion := "4.13.4"
 
 git.useGitDescribe := true
 git.gitDescribePatterns := Seq("v*.*")
@@ -42,6 +44,6 @@ resolvers ++= Seq(
   "ACPArtifactory Ext Release" at "https://artifactory.digital.homeoffice.gov.uk/artifactory/ext-release-local/"
 )
 
-publishArtifact in (Test, packageBin) := true
-publishArtifact in (Test, packageDoc) := true
-publishArtifact in (Test, packageSrc) := true
+Test / packageBin / publishArtifact := true
+Test / packageDoc / publishArtifact := true
+Test / packageSrc / publishArtifact := true
