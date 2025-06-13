@@ -7,7 +7,7 @@ import grizzled.slf4j.Logging
  * timed("Description of what is being timed") { your functionality }
  */
 trait Time extends Logging {
-  def timed[R](description: String)(f: => R) = {
+  def timed[R](description: String)(f: => R): R = {
     val start = System.currentTimeMillis()
     val result = f
     info(s"$description => ${System.currentTimeMillis() - start} milliseconds")

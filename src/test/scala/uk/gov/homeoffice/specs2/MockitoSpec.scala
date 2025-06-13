@@ -1,19 +1,23 @@
 package uk.gov.homeoffice.specs2
 
-import org.specs2.mock.Mockito
+import org.mockito.Mockito.*
 import org.specs2.mutable.Specification
 import org.specs2.specification.Scope
 
-class MockitoSpec extends Specification with Mockito {
+class Test() {
+  def real() :String = "real"
+}
 
-  trait Context extends Scope{
-    val underTest: List[String] = mock[List[String]]
+class MockitoSpec extends Specification {
+
+  trait Context extends Scope {
+    val mockedTest :Test = mock(classOf[Test])
+    when(mockedTest.real()).thenReturn("fake")
   }
 
   "MockitoSpec" should {
     "work" in new Context {
-      underTest.head returns "Woof"
-      underTest.head mustEqual "Woof"
+      mockedTest.real() mustEqual "fake"
     }
   }
 }
