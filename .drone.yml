@@ -35,7 +35,6 @@ steps:
   pull: if-not-exists
   image: quay.io/ukhomeofficedigital/sonar-scanner:v4.6
   commands:
-  - cd caseworker
   - sonar-scanner
   when:
     event:
