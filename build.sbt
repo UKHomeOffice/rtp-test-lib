@@ -12,11 +12,9 @@ lazy val root = Project(id = "rtp-test-lib", base = file("."))
       "org.specs2" %% "specs2-core" % "4.21.0" withSources(),
       "org.specs2" %% "specs2-matcher-extra" % "4.21.0" withSources(),
       "org.specs2" %% "specs2-junit" % "4.21.0" withSources(),
-      "org.mockito" % "mockito-core" % "5.16.1"
+      "org.mockito" % "mockito-core" % "5.18.0"
     )
   )
-
-ThisBuild / semanticdbVersion := "4.13.4"
 
 git.useGitDescribe := true
 git.gitDescribePatterns := Seq("v*.*")
