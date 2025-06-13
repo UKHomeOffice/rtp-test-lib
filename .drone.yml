@@ -47,12 +47,12 @@ steps:
   pull: if-not-exists
   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/rtge/scala-sbt:latest
   commands:
+  - rm /app/.sbt/repositories
   - . /app/entrypoint.sh
   - sbt clean +publish
   environment:
     ARTIFACTORY_PASSWORD:
       from_secret: ARTIFACTORY_PASSWORD
-    ARTIFACTORY_SERVER: https://artifactory.digital.homeoffice.gov.uk/
     ARTIFACTORY_USERNAME: regt-build-bot
     OVERRIDE_BUILD_REPOS: "false"
     JRE_VERSION: 21
