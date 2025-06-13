@@ -12,7 +12,8 @@ steps:
   pull: if-not-exists
   image: quay.io/ukhomeofficedigital/scala-sbt:latest
   commands:
-  - /root/entrypoint.sh
+  - rm /app/.sbt/repositories
+  - . /root/entrypoint.sh
   - git fetch --tags
   - sbt clean coverage test coverageReport coverageOff
   - sbt dependencyCheck
@@ -23,7 +24,7 @@ steps:
     ARTIFACTORY_PASSWORD:
       from_secret: ARTIFACTORY_PASSWORD
     ARTIFACTORY_USERNAME: regt-build-bot
-    JRE_VERSION: 17
+    JRE_VERSION: 21
   when:
     event:
     - push
