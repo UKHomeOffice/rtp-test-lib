@@ -1,6 +1,6 @@
 package uk.gov.homeoffice.specs2
 
-import org.mockito.Mockito.*
+import org.mockito.Mockito._
 import org.specs2.mutable.Specification
 import org.specs2.specification.Scope
 
