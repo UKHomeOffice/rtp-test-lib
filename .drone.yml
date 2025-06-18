@@ -10,31 +10,53 @@ platform:
 steps:
 - name: build
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/rtge/scala-sbt:latest
   commands:
-  - /root/entrypoint.sh
+  - rm /app/.sbt/repositories
+  - echo -en "[repositories]\n  local\n  lib-releases: https://artifactory.digital.homeoffice.gov.uk/artifactory/libs-release/\n  lib-snapshots: https://artifactory.digital.homeoffice.gov.uk/artifactory/libs-snapshot/\n" > /app/.sbt/repositories
+  - . /app/entrypoint.sh
   - git fetch --tags
+  - sbt clean coverage test coverageReport coverageOff
+  - sbt dependencyCheck
+  - sbt scalastyle
+  - sbt scapegoat
   - sbt clean test
   environment:
     ARTIFACTORY_PASSWORD:
       from_secret: ARTIFACTORY_PASSWORD
     ARTIFACTORY_USERNAME: regt-build-bot
+    JRE_VERSION: 21
+    OVERRIDE_BUILD_REPOS: "false"
   when:
     event:
     - push
     - tag
 
+- name: sonar-scanner
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/sonar-scanner:v4.6
+  commands:
+  - sonar-scanner
+  when:
+    event:
+    - push
+    - tag
+  depends_on:
+    - build
+
 - name: publish
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/scala-sbt:v0.3.1
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/rtge/scala-sbt:latest
   commands:
-  - /root/entrypoint.sh
-  - sbt +publish
+  - rm /app/.sbt/repositories
+  - . /app/entrypoint.sh
+  - sbt clean +publish
   environment:
     ARTIFACTORY_PASSWORD:
       from_secret: ARTIFACTORY_PASSWORD
-    ARTIFACTORY_SERVER: https://artifactory.digital.homeoffice.gov.uk/
     ARTIFACTORY_USERNAME: regt-build-bot
+    OVERRIDE_BUILD_REPOS: "false"
+    JRE_VERSION: 21
   when:
     branch:
     - master
@@ -42,6 +64,6 @@ steps:
     - push
     - tag
   depends_on:
-    - build
+    - sonar-scanner
 
 ...
